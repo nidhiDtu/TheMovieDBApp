@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#2b2b2b"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.themoviedbapp.MovieDetailActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/backdrop"
+            android:layout_width="370dp"
+            android:layout_height="220dp"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/backdrop"
+            android:hint="Movie Title"
+            android:padding="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="160dp"
+            android:layout_height="210dp"
+            android:padding="8dp"
+            android:layout_below="@+id/title"/>
+
+        <TextView
+            android:id="@+id/overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_toEndOf="@+id/poster"
+            android:hint="Overview and stuff"
+            android:padding="5dp"
+            android:textColor="#ffffff" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/imageList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/poster"
+            android:orientation="horizontal"
+            app:reverseLayout="true"></android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

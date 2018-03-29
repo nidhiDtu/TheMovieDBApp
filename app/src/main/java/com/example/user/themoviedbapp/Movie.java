@@ -31,7 +31,7 @@ public class Movie {
         }
     }
 
-    private long id;
+    private int id;
 
     @SerializedName("original_title")
     private String movieName;
@@ -39,9 +39,31 @@ public class Movie {
     @SerializedName("poster_path")
     private String posterPath;
 
+    @SerializedName("backdrop_path")
+    private String backdropPath;
+
+    @SerializedName("overview")
+    private String overView;
+
+    public String getOverView() {
+        return overView;
+    }
+
+    public void setOverView(String overView) {
+        this.overView = overView;
+    }
+
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
+    public void setBackdropPath(String backdropPath) {
+        this.backdropPath = backdropPath;
+    }
+
     private ArrayList<Genre> genres;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -57,7 +79,7 @@ public class Movie {
         return genres;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

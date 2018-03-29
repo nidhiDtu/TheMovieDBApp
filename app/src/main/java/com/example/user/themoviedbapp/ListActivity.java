@@ -1,11 +1,14 @@
 package com.example.user.themoviedbapp;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class ListActivity extends AppCompatActivity implements MovieListFragment.UserSelectedCallback{
+
+    private FragmentManager fragmentManager1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class ListActivity extends AppCompatActivity implements MovieListFragment
         topRatedFragment.setArguments(bundle3);
         upComingFragment.setArguments(bundle4);
 
-        FragmentManager fragmentManager1=getSupportFragmentManager();
+        fragmentManager1=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager1.beginTransaction();
 
         fragmentTransaction.replace(R.id.container1,popularListFragment);
@@ -47,6 +50,9 @@ public class ListActivity extends AppCompatActivity implements MovieListFragment
 
     @Override
     public void onUserSelected(Movie movie) {
-
+        Intent intent=new Intent(ListActivity.this,MovieDetailActivity.class);
+        int id=movie.getId();
+        intent.putExtra("id",id);
+        startActivity(intent);
     }
 }

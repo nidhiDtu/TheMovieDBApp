@@ -76,7 +76,6 @@ public class MovieListFragment extends Fragment {
             public void onItemClick(int position) {
                 Movie movie=movies.get(position);
                 mCallback.onUserSelected(movie);
-                Toast.makeText(getContext(),"Item Touch is handled !",Toast.LENGTH_LONG).show();
             }
         });
 
