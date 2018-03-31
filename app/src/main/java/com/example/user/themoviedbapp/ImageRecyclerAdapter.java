@@ -31,7 +31,7 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdap
     @Override
     public UserHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view=inflater.inflate(R.layout.movie_row_detail,parent,false);
+        View view=inflater.inflate(R.layout.row_backdrop_item,parent,false);
         UserHolder userHolder=new UserHolder(view);
         return userHolder;
     }
@@ -39,7 +39,7 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull UserHolder holder, int position) {
         String path=paths.get(holder.getAdapterPosition());
-        Picasso.get().load("https://image.tmdb.org/t/p/w500"+id+path).into(holder.imageView);
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/"+path).into(holder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

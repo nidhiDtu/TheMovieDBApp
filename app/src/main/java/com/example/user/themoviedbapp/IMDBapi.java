@@ -9,6 +9,7 @@ import retrofit2.http.Path;
  */
 
 public interface IMDBapi {
+
     @GET("{type}?api_key=8bfd44e46001a638f840aa0f6c5e5b7a")
     Call<ListMovies> getMoviesList(@Path("type") String type);
 
@@ -17,4 +18,7 @@ public interface IMDBapi {
 
     @GET("{id}/images?api_key=8bfd44e46001a638f840aa0f6c5e5b7a")
     Call<Images> getImages(@Path("id") String id);
+
+    @GET("{id}/credits?api_key=8bfd44e46001a638f840aa0f6c5e5b7a")
+    Call<Casts> getCasts(@Path("id") String id);
 }

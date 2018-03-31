@@ -45,11 +45,47 @@
             android:padding="5dp"
             android:textColor="#ffffff" />
 
+        <TextView
+            android:id="@+id/images"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/poster"
+            android:layout_marginLeft="10dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="10dp"
+            android:padding="3dp"
+            android:text=" Images  "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />/>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/imageList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/poster"
+            android:layout_below="@+id/images"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal"
+            app:reverseLayout="true"></android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/casts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageList"
+            android:layout_marginLeft="10dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="10dp"
+            android:padding="3dp"
+            android:text=" Top rated casts  "
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/castlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/casts"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:orientation="horizontal"
             app:reverseLayout="true"></android.support.v7.widget.RecyclerView>
 

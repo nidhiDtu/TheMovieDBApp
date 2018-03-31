@@ -40,6 +40,11 @@ public class MovieDetailActivity extends Activity {
     private ArrayList<Images.Backdrop> backdrops=new ArrayList<>();
     private ArrayList<String> paths1=new ArrayList<>();
 
+    private Casts casts;
+    private RecyclerView castListView;
+    private ArrayList<Casts.Cast> castArrayList;
+    private CastRecyclerAdapter castRecyclerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +54,9 @@ public class MovieDetailActivity extends Activity {
         poster=findViewById(R.id.poster);
         title=findViewById(R.id.title);
         overView=findViewById(R.id.overview);
+
         imageListView=findViewById(R.id.imageList);
+        castListView=findViewById(R.id.castlist);
 
         Intent intent=getIntent();
         id=intent.getIntExtra("id",-1);
@@ -96,7 +103,15 @@ public class MovieDetailActivity extends Activity {
                 images=response.body();
                 if(images!=null){
                     backdrops=images.getBackDrops();
-                    getListViewDone();
+                    paths1.clear();
+
+                    for(int i=0;i<backdrops.size();i++){
+                        paths1.add(backdrops.get(i).getBackdroppath());
+                    }
+                    adapter=new ImageRecyclerAdapter(MovieDetailActivity.this,paths1,id);
+                    imageListView.setAdapter(adapter);
+                    imageListView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL));
+                    imageListView.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -105,18 +120,28 @@ public class MovieDetailActivity extends Activity {
                 Toast.makeText(MovieDetailActivity.this,"Failure",Toast.LENGTH_LONG).show();
             }
         });
-    }
 
-    private void getListViewDone() {
-        paths1.clear();
+        Call<Casts> call2=imdBapi.getCasts(id+"");
+        call2.enqueue(new Callback<Casts>() {
+            @Override
+            public void onResponse(Call<Casts> call, Response<Casts> response) {
+                Casts body=response.body();
+                if (body!=null){
+                    casts=body;
+                    if (casts.getCastList()!=null){
+                        castArrayList=casts.getCastList();
+                        castRecyclerAdapter=new CastRecyclerAdapter(MovieDetailActivity.this,castArrayList);
+                        castListView.setAdapter(castRecyclerAdapter);
+                        castListView.setLayoutManager(new StaggeredGridLayoutManager(1,LinearLayoutManager.HORIZONTAL));
+                        castListView.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
 
-        for(int i=0;i<backdrops.size();i++){
-            paths1.add(backdrops.get(i).getBackdroppath());
-        }
-        adapter=new ImageRecyclerAdapter(MovieDetailActivity.this,paths1,id);
-        imageListView.setAdapter(adapter);
-        imageListView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL));
-        adapter.notifyDataSetChanged();
-        imageListView.setVisibility(View.VISIBLE);
+            @Override
+            public void onFailure(Call<Casts> call, Throwable t) {
+
+            }
+        });
     }
 }
