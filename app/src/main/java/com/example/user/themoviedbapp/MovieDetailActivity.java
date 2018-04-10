@@ -143,5 +143,6 @@ public class MovieDetailActivity extends Activity {
 
             }
         });
+
     }
 }

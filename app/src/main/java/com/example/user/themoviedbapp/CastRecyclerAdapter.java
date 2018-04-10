@@ -68,7 +68,7 @@ public class CastRecyclerAdapter extends RecyclerView.Adapter <CastRecyclerAdapt
         public UserViewHolder(View itemView) {
             super(itemView);
             this.view=itemView;
-            this.image=itemView.findViewById(R.id.poster);
+            this.image=itemView.findViewById(R.id.image);
             this.character=itemView.findViewById(R.id.character);
             this.name=itemView.findViewById(R.id.name);
         }

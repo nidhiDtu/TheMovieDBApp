@@ -9,7 +9,7 @@
     >
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -80,6 +80,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:padding="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Genres"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/genreRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                app:reverseLayout="true"></android.support.v7.widget.RecyclerView>
+
+
+            <TextView
+                android:id="@+id/see_all_genres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#2b2b2b"
+                android:text="See All"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="#fdd835"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:layout_marginLeft="20dp"/>
 
         </LinearLayout>
 

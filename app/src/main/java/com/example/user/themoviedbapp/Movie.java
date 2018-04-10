@@ -10,27 +10,6 @@ import java.util.ArrayList;
 
 public class Movie {
 
-    class Genre{
-        int id;
-        String name;
-
-        public String getName() {
-            return name;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-    }
-
     private int id;
 
     @SerializedName("original_title")
@@ -44,6 +23,9 @@ public class Movie {
 
     @SerializedName("overview")
     private String overView;
+
+    @SerializedName("genres")
+    private ArrayList<Genre> genres;
 
     public String getOverView() {
         return overView;
@@ -60,8 +42,6 @@ public class Movie {
     public void setBackdropPath(String backdropPath) {
         this.backdropPath = backdropPath;
     }
-
-    private ArrayList<Genre> genres;
 
     public int getId() {
         return id;
